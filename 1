@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <math.h>
 #include "binary_trees.h"
 
 /**
@@ -14,17 +13,18 @@ size_t binary_tree_height(const binary_tree_t *tree)
 {
 	const binary_tree_t *root = tree;
 	int h1, h2;
-	static int x;
 
-	if (root != NULL)
+	if (root)
 	{
-		x = -1;
 		h1 = binary_tree_height(root->left);
 		h2 = binary_tree_height(root->right);
+		if (h1 == 0)
+			h1 += -1;
+		if (h2 == 0)
+			h1 += -1;
 		if (h1 >= h2)
 			return (h1 + 1);
 		return (h2 + 1);
 	}
-	return (x);
-
+	return (0);
 }
