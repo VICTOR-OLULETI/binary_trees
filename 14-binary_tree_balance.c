@@ -37,12 +37,11 @@ int binary_tree_balance(const binary_tree_t *tree)
 	const binary_tree_t *root = tree;
 	int h1, h2;
 
-	if (root == NULL)
-		return (0);
 	if (root != NULL)
 	{
 		h1 = binary_tree_height(root->left);
 		h2 = binary_tree_height(root->right);
+		return (h1 - h2);
 	}
-	return (h1 - h2);
+	return (0);
 }
