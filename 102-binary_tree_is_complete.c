@@ -74,7 +74,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	bool flag = false;
 
 	if (root == NULL)
-		return (1);
+		return (0);
 	queue = createQueue(&front, &rear);
 	if (queue == NULL)
 	{	free(queue);
